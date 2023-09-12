@@ -28,7 +28,7 @@ jobs:
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-            # - name: Run tests
-            #   run: |
-            #       cd src
-            #       python manage.py test
+            - name: Setup tests
+              env:
+                DJANGO_SETTINGS_MODULE: polls.settings
+              run: pytest
