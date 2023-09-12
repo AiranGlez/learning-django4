@@ -27,7 +27,7 @@ jobs:
             - name: Create Pull Request to Production branch
               uses: peter-evans/create-pull-request@v5
               with:
-                author: ${{ github.actor }}
+                author: 'airangonzalezgomez@gmail.com'
                 signoff: false
                 branch: production
                 delete-branch: false
