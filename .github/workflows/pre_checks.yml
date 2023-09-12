@@ -23,12 +23,12 @@ jobs:
                   pip install --upgrade pip
                   pip install -r requirements.txt
 
-            - name: Create Pull Request to Production branch
-              run: gh pr create -B pre-production -H production --title 'Merge Pre-Production changes into Production' --body 'Created by GitHub Actions'
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
             - name: Setup tests
               env:
                 DJANGO_SETTINGS_MODULE: polls.settings
               run: pytest
+
+            # - name: Create Pull Request to Production branch
+            #   run: gh pr create -B pre-production -H production --title 'Merge Pre-Production changes into Production' --body 'Created by GitHub Actions'
+            #   env:
+            #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
