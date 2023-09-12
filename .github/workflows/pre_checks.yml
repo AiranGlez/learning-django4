@@ -24,6 +24,14 @@ jobs:
                   pip install --upgrade pip
                   pip install -r requirements.txt
 
+            - name: Create Pull Request to Production branch
+              uses: peter-evans/create-pull-request@v5
+              with:
+                author: ${{ github.actor }}
+                signoff: false
+                branch: production
+                delete-branch: false
+
             # - name: Run tests
             #   run: |
             #       cd src
