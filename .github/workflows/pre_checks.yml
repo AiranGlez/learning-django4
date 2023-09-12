@@ -1,6 +1,5 @@
 name: Pre-Production Checks
-run-name: ${{ github.actor }}'s Django app checks and deployment
-
+run-name: ${{ github.actor }}'s Django CI && Testing
 on:
     push:
         branches: [pre-production]
@@ -27,7 +26,7 @@ jobs:
             - name: Create Pull Request to Production branch
               uses: peter-evans/create-pull-request@v5
               with:
-                author: 'airangonzalezgomez@gmail.com'
+                author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
                 signoff: false
                 branch: production
                 delete-branch: false
